@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const morgan = require('morgan');
 const email = require('./routes/email-notify');
-
+const scheduler = require('./schedule');
 
 app.set('port', process.env.DEV_PORT || 3000);
 app.use(express.json());
@@ -22,4 +22,5 @@ app.use((req, res, next) => {
 
 app.listen(process.env.DEV_PORT , () => {  
     console.log(app.get('port'), '번 포트에서 대기중');
+    scheduler();
 });
