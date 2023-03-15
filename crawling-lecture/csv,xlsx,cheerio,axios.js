@@ -6,10 +6,10 @@ const axios = require('axios');
 
 
 
-// const recodes1 = parse(csv.toString('utf-8'));           // csv가 버퍼형식이므로 한글로 전환 후 파싱
-// recodes1.forEach((i,r) => { 
-//     console.log(r,i);
-// });
+const recodes1 = parse(csv.toString('utf-8'));           // csv가 버퍼형식이므로 한글로 전환 후 파싱
+recodes1.forEach((i,r) => { 
+    console.log(r,i);
+});
 
 const add_to_sheet = require('./add_to_xlsx_data');
 const xlsx = require('xlsx');
@@ -21,9 +21,9 @@ const recodes2 = xlsx.utils.sheet_to_json(ws,
 // console.log(ws['!ref']);
 // console.log(recodes2);
 
-recodes2.forEach((r) => {
-    console.log(r.제목, r.링크);
-})
+// recodes2.forEach((r) => {
+//     console.log(r.제목, r.링크);
+// })
 
 const crawler = async () => {
     //await Promise.all( recodes2.map( async (r) =>{
@@ -47,7 +47,7 @@ const crawler = async () => {
     //   )
     //  );
 };
-crawler();
+//crawler();
 
 
 
