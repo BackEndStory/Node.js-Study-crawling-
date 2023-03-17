@@ -70,12 +70,22 @@ const csv_crawling_write_data = async () => {
                
                 const page = await browser.newPage();
                 await page.goto(r[1]);
-                const scoreEl = await page.$('.score.score_left .star_score');
-                if (scoreEl) {
-                    const text = await page.evaluate(tag => tag.textContent, scoreEl);
+               // const scoreEl = await page.$('.score.score_left .star_score');
+                // if (scoreEl) {
+                //     const text = await page.evaluate(tag => tag.textContent, scoreEl);
+                //     console.log(r[0], "평점", text.trim());
+                //     result.push([r[0], r[1], text.trim()]);       // 데이터가 온 순서대로
+                //    //result[i] = [r[0], r[1], text.trim()];              // 기존 csv파일 순서대로
+                // }\
+                const text = await page.evaluate(()=>{                    // dom. document를 쓸 때 evaluate안에다가 적는다
+                    const score = document.querySelector('.score.score_left .star_score');
+                    if(score){
+                        return score.textContent;
+                    }
+                });
+                if(text){
                     console.log(r[0], "평점", text.trim());
-                   // result.push([r[0], r[1], text.trim()]);       // 데이터가 온 순서대로
-                   result[i] = [r[0], r[1], text.trim()];              // 기존 csv파일 순서대로
+                    result.push([r[0], r[1], text.trim()]);   
                 }
             } catch (e) {
                 console.error(e);
