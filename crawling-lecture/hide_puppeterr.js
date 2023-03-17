@@ -16,8 +16,8 @@ const hide_csv_crawling = async () => {
         for(const [i,r] of recodes.entries()) {
             try {
                
-                const page = await browser.newPage('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36');
-                await page.setUserAgent('');
+                const page = await browser.newPage();
+                await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36');
                 await page.goto(r[1]);
                 const text = await page.evaluate(()=>{                    // dom. document를 쓸 때 evaluate안에다가 적는다
                     const score = document.querySelector('.score.score_left .star_score');
