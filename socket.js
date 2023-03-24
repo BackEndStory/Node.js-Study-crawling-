@@ -13,7 +13,7 @@ module.exports = (server) => {
         });
         socket.on('reply',(data)=> {
             console.log(data);
-            socket.emit('news',data);
+            socket.emit('news',{data, acumulate_users:30,message: "ok"});
         });
 
     })
