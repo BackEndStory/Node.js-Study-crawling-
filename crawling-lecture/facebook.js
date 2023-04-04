@@ -8,12 +8,12 @@ dotenv.config({ path: "../.env" });   // dotenv사용 시 path  설정해주기
 const faceBookLogin = async () => {
     try {
 
-        const browser = await puppeteer.launch({ headless: false, args: ['--window-size=1920,1080'] });
+        const browser = await puppeteer.launch({ headless: false, args: ['--window-size=1920,1080', '--disable-notifications'] });
         const page = await browser.newPage();
         const id = process.env.ID;
         const password = process.env.PASS;
         await page.setViewport({
-            width: 1920,
+            width: 1080,
             height: 1080
         });
         await page.goto('https://facebook.com');
@@ -28,9 +28,12 @@ const faceBookLogin = async () => {
         await page.hover("._6ltg");
         await page.waitForTimeout(2000);
         await page.click("._6ltg");                   // 해당 버튼 클릭 시
+
+       
         await page.waitForTimeout(6000);
         await page.keyboard.press("Escape");
-
+        await page.click("div.x1rg5ohu.x1n2onr6.x3ajldb.x1ja2u2z");
+     
 
         // await page.close();
         // await browser.close();
