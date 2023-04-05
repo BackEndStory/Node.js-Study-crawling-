@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 
 
-const faceBookLogin = async () => {
+const focus = async () => {
     try {
 
         const browser = await puppeteer.launch({ headless: false, args: ['--window-size=1920,1080', '--disable-notifications'] });
@@ -75,8 +75,8 @@ const faceBookLogin = async () => {
               }
             })();
           });
-          await page.click('#email');
-          await page.keyboard.down('ShiftLeft');
+          await page.click('#email');                     // 클릭으로 포커스 설정
+          await page.keyboard.down('ShiftLeft');          // 시프트 누르기
           await page.keyboard.press('KeyL');
           await page.waitForTimeout(500);
           await page.keyboard.press('KeyE');
@@ -89,7 +89,7 @@ const faceBookLogin = async () => {
           await page.waitForTimeout(500);
           await page.keyboard.press('KeyE');
           await page.waitForTimeout(500);
-          await page.keyboard.up('ShiftLeft');
+          await page.keyboard.up('ShiftLeft');            // 시프트 떼기
 
 
 
@@ -99,4 +99,4 @@ const faceBookLogin = async () => {
 
 }
 
-faceBookLogin();
+focus();
