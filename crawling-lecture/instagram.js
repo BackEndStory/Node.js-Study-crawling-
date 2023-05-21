@@ -49,19 +49,34 @@ const instargram = async () => {
         //     };
         // });
         // console.log(newPost);
-        let i = 0;
-        while (i < 10) {
-            const newPost = await page.evaluate(() => {
-                const heartBtn = document.querySelector("._abm0._abl_ span");
-                heartBtn.click();
-            });
-            await page.waitForTimeout(1000);
-            await page.evaluate(() => {
-                window.scrollBy(0, 700);
-            });
-            i++;
+        // let i = 0;
+        // while (i < 10) {
+        //     const newPost = await page.evaluate(() => {
+        //         const heartBtn = document.querySelector("._abm0._abl_ span");         // 좋아요 누르기
+        //         heartBtn.click();
+        //     });
+        //     await page.waitForTimeout(1000);
+        //     await page.evaluate(() => {
+        //         window.scrollBy(0, 700);
+        //     });
+        //     i++;
 
-        }
+        // }
+        // await page.waitForSelector(".xh8yej3.x1iyjqo2>div:nth-child(2)");                // 인스타 검색 후 게시글 링크 가져오기
+        // await page.click(".xh8yej3.x1iyjqo2>div:nth-child(2)");
+        // await page.waitForTimeout(2000);
+        // await page.waitForSelector("input[aria-label='입력 검색']");
+        // await page.click("input[aria-label='입력 검색']");
+        // await page.keyboard.type("맛집");
+        // await page.waitForTimeout(2000);
+        // await page.waitForSelector(".x9f619.x78zum5.xdt5ytf");
+        // await page.waitForTimeout(1000);
+        // const href = await page.evaluate(() => {
+        //     return document.querySelector(".x9f619.x78zum5.xdt5ytf>div>a:first-child").href;
+        // })
+        // console.log(href);
+        
+
 
 
     } catch (e) {
