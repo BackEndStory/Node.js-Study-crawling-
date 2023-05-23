@@ -20,14 +20,20 @@ const shinhan = async () => {
         await page.goto('https://www.shinhan.ac.kr/kr/194/subview.do', {
             waitUntil: 'networkidle0',
         });
-     
 
-        const shinhan = await page.evaluate(() => {
-            const content = document.querySelector('tbody>tr a');
-            return content;
-        });
+        for (var i = 1; i < 12; i++) {
+            console.log(i);
+            const shinhan = await page.evaluate((index) => {
+            
+                const content = document.querySelector(`tbody>tr:nth-child(${index})>td._artclTdTitle>a>strong`).textContent;
+                return content;
+            }, i);
 
-        console.log(shinhan)
+            console.log(shinhan);
+        }
+
+
+   
 
 
 
